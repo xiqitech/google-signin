@@ -1,0 +1,170 @@
+{
+  "name": "@react-native-google-signin/google-signin",
+  "version": "21.0.0",
+  "description": "Universal Google sign in for react native",
+  "react-native": "lib/module/index.js",
+  "browser": "lib/module/index-web.js",
+  "main": "lib/module/index.js",
+  "types": "lib/typescript/src/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./lib/typescript/src/index.d.ts",
+      "react-native": "./lib/module/index.js",
+      "browser": "./lib/module/index-web.js",
+      "default": "./lib/module/index.js"
+    },
+    "./app.plugin.js": "./app.plugin.js",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "expo",
+    "RNGoogleSignin.podspec",
+    "!lib/typescript/example",
+    "!android/build",
+    "!android/gradle",
+    "!android/gradlew",
+    "!android/gradlew.bat",
+    "!android/local.properties",
+    "!android/.gradle",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "app.plugin.js",
+    "expo-module.config.json",
+    "plugin/build",
+    "jest/build",
+    "README.md"
+  ],
+  "scripts": {
+    "nuke-ios": "rm -rf example/ios/Podfile.lock && rm -rf example/ios/Pods && rm -rf example/ios/build && cd example/ios && npx pod-install",
+    "build:mock": "tsc --build jest",
+    "build:plugin": "tsc --build plugin",
+    "clean:plugin": "expo-module clean plugin",
+    "test": "SILENCE_MOCK_NOT_FOUND=true jest",
+    "test:watch": "SILENCE_MOCK_NOT_FOUND=true jest --watch",
+    "typescript": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "build": "bob build && yarn build:plugin && yarn build:mock",
+    "prepare": "husky",
+    "prepack": "yarn build",
+    "release": "npx semantic-release",
+    "prettier:check": "prettier --list-different '**/*.{js,ts,tsx}' '**/*.{md,mdx}'",
+    "prettier:write": "prettier --write '**/*.{js,ts,tsx}' '**/*.{md,mdx}'"
+  },
+  "workspaces": [
+    "example"
+  ],
+  "keywords": [
+    "react-native",
+    "google sign in",
+    "google login",
+    "android creadential manager",
+    "oauth",
+    "oauth2",
+    "ios",
+    "android",
+    "web"
+  ],
+  "repository": "https://github.com/react-native-google-signin/google-signin-next",
+  "author": "Vojtech Novak <vonovak@gmail.com> (https://github.com/vonovak)",
+  "bugs": {
+    "url": "https://github.com/react-native-google-signin/google-signin/issues"
+  },
+  "homepage": "https://github.com/react-native-google-signin/google-signin#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.27.0",
+    "@babel/plugin-syntax-flow": "^7.27.1",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@react-native/eslint-config": "^0.80.1",
+    "@semantic-release/git": "^10.0.1",
+    "@testing-library/react-native": "^13.2.0",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^19.0.12",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ft-flow": "^3.0.11",
+    "eslint-plugin-jest": "^28.11.0",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react": "^7.37.5",
+    "expo": "^53.0.9",
+    "expo-module-scripts": "^4.1.7",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "pod-install": "^0.3.10",
+    "prettier": "^3.5.3",
+    "react": "19.0.0",
+    "react-native": "^0.80.1",
+    "react-native-builder-bob": "0.40.12",
+    "semantic-release": "^24.2.6",
+    "typescript": "^5.8.3"
+  },
+  "resolutions": {
+    "react-test-renderer": "19.0.0"
+  },
+  "peerDependencies": {
+    "expo": ">=52.0.40",
+    "react": "*",
+    "react-native": "*"
+  },
+  "peerDependenciesMeta": {
+    "expo": {
+      "optional": true
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      [
+        "module",
+        {
+          "esm": true
+        }
+      ],
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "codegenConfig": {
+    "name": "RNGoogleSignInCGen",
+    "type": "all",
+    "jsSrcsDir": "src/spec",
+    "android": {
+      "javaPackageName": "com.reactnativegooglesignin"
+    },
+    "ios": {
+      "componentProvider": {
+        "RNGoogleSignInButton": "RNGoogleSignInButtonComponentView"
+      }
+    }
+  },
+  "dependencies": {
+    "@types/google-one-tap": "^1.2.6",
+    "jwt-decode": "^4.0.0",
+    "nanoevents": "^9.1.0"
+  },
+  "packageManager": "yarn@4.9.2",
+  "GoogleSignInPodVersion": "~> 9.0.0"
+}
