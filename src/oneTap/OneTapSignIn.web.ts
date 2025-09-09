@@ -139,9 +139,9 @@ const signOutWeb = async (): Promise<null> => {
   return Promise.resolve(null);
 };
 
-const throwApiUnavailableError = async () => {
+const throwApiUnavailableError = async (methodName: string) => {
   const err = new Error(
-    '`requestAuthorization` is not implemented on the web platform.',
+    `\`${methodName}\` is not implemented on the web platform.`,
   );
   Object.assign(err, {
     code: statusCodes.PLAY_SERVICES_NOT_AVAILABLE,
@@ -194,7 +194,9 @@ export const GoogleOneTapSignIn: OneTapSignInModule = {
   signIn,
   createAccount: presentExplicitSignIn,
   presentExplicitSignIn,
-  requestAuthorization: throwApiUnavailableError,
+  requestAuthorization: () => throwApiUnavailableError('requestAuthorization'),
+  clearCachedAccessToken: () =>
+    throwApiUnavailableError('clearCachedAccessToken'),
   signOut: signOutWeb,
   configure,
   checkPlayServices,

@@ -32,7 +32,7 @@ function throwMissingConfig() {
     throw err;
 }
 function throwMissingWebClientId() {
-    const err = new Error('`webClientId` is required for OneTap sign-in. Please provide it in the `configure` method.');
+    const err = new Error('`webClientId` is required for OneTap sign-in. Provide it in the `configure` method.');
     Object.assign(err, {
         code: 'configure',
     });

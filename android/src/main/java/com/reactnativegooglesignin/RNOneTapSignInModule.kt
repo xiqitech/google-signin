@@ -30,6 +30,7 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.bridge.UiThreadUtil
 import com.facebook.react.util.RNLog
+import com.google.android.gms.auth.api.identity.ClearTokenRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
@@ -264,6 +265,22 @@ class RNOneTapSignInModule(reactContext: ReactApplicationContext) :
         result
       )
     }
+  }
+
+  override fun clearCachedAccessToken(
+    tokenString: String,
+    promise: Promise
+  ) {
+    val activity = activity ?: run {
+      RNGoogleSigninModule.rejectWithNullActivity(promise)
+      return
+    }
+    // https://developer.android.com/identity/authorization#revoke-permissions
+    Identity.getAuthorizationClient(activity)
+      .clearToken(ClearTokenRequest.builder().setToken(tokenString).build())
+      .addOnSuccessListener { promise.resolve(null) }
+      .addOnFailureListener{ e -> promise.reject(e) }
+      .addOnCanceledListener { promise.reject("clearCachedAccessToken", "task was cancelled") }
   }
 
   override fun signOut(promise: Promise) {

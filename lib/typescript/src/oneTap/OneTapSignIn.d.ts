@@ -17,6 +17,7 @@ export declare const GoogleOneTapSignIn: {
     enableAppCheck: (params?: import("./types").EnableAppCheckParams) => Promise<null>;
     configure: typeof configure;
     revokeAccess: (emailOrUniqueId: string) => Promise<null>;
+    clearCachedAccessToken: (tokenString: string) => Promise<null>;
 };
 export {};
 //# sourceMappingURL=OneTapSignIn.d.ts.map

@@ -18,6 +18,7 @@ export const OneTapNativeModule = {
   explicitSignIn: unsupported,
   signOut: unsupported,
   requestAuthorization: unsupported,
+  clearCachedAccessToken: unsupported,
   checkPlayServices: unsupported,
   revokeAccess: unsupported,
 };

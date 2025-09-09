@@ -18,10 +18,20 @@ import { GoogleSigninButtonProps } from './statics';
 export const BaseButton = ({
   color,
   style,
+  onBlur,
+  onFocus,
   ...rest
 }: GoogleSigninButtonProps) => {
   const activeColorScheme = useColorScheme();
   const colorScheme = color ?? activeColorScheme ?? 'light';
+
+  if (__DEV__) {
+    if (onBlur || onFocus) {
+      console.warn(
+        '[GoogleSigninButton] The `onBlur` and `onFocus` props are not supported on macOS.',
+      );
+    }
+  }
 
   return (
     <TouchableOpacity

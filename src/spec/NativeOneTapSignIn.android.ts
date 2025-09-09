@@ -32,6 +32,7 @@ export interface Spec extends TurboModule {
     minRequiredVersion: number;
     installedVersion: number;
   }>;
+  clearCachedAccessToken(tokenString: string): Promise<null>;
   requestAuthorization(params: {
     scopes: string[];
     accountName?: string;

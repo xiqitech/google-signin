@@ -294,6 +294,7 @@ export type OneTapSignInModule = {
     options: RequestAuthorizationParams,
   ) => Promise<AuthorizationResponse>;
   signOut: () => Promise<null>;
+  clearCachedAccessToken(tokenString: string): Promise<null>;
   revokeAccess: (emailOrUniqueId: string) => Promise<null>;
   checkPlayServices: (
     showErrorResolutionDialog?: boolean,

@@ -30,7 +30,7 @@ export const createdValidatedOneTapConfig = (
   if (process.env.NODE_ENV !== 'production') {
     if ('androidClientId' in configuration) {
       console.error(
-        'RNGoogleSignIn: `androidClientId` is not a valid configuration parameter, please remove it.',
+        'RNGoogleSignIn: `androidClientId` is not a valid configuration parameter, remove it.',
       );
     }
   }

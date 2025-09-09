@@ -1,1 +1,1 @@
-{"version":3,"file":"BaseButton.macos.d.ts","sourceRoot":"","sources":["../../../../src/buttons/BaseButton.macos.tsx"],"names":[],"mappings":"AAcA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,EAAE,uBAAuB,EAAE,MAAM,WAAW,CAAC;AAEpD,eAAO,MAAM,UAAU,GAAI,2BAIxB,uBAAuB,sBAYzB,CAAC"}
+{"version":3,"file":"BaseButton.macos.d.ts","sourceRoot":"","sources":["../../../../src/buttons/BaseButton.macos.tsx"],"names":[],"mappings":"AAcA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,EAAE,uBAAuB,EAAE,MAAM,WAAW,CAAC;AAEpD,eAAO,MAAM,UAAU,GAAI,4CAMxB,uBAAuB,sBAoBzB,CAAC"}

@@ -114,6 +114,7 @@ jest.mock('../src/spec/NativeOneTapSignIn.android', () => {
         configure: jest.fn(),
         signOut: jest.fn().mockResolvedValue(null),
         revokeAccess: jest.fn().mockResolvedValue(null),
+        clearCachedAccessToken: jest.fn().mockResolvedValue(null),
         signIn: jest
             .fn()
             .mockResolvedValue(exports.mockOneTapResponse),

@@ -22,7 +22,7 @@ const createdValidatedOneTapConfig = (extendWith, callbacks) => {
     }
     if (process.env.NODE_ENV !== 'production') {
         if ('androidClientId' in configuration) {
-            console.error('RNGoogleSignIn: `androidClientId` is not a valid configuration parameter, please remove it.');
+            console.error('RNGoogleSignIn: `androidClientId` is not a valid configuration parameter, remove it.');
         }
     }
     return {

@@ -15,7 +15,11 @@ async function checkPrerequisites(callbacks) {
     (0, oneTapConfiguration_1.validateOneTapConfig)(callbacks);
     await (0, GoogleSignin_1.getOriginalConfigPromise)();
 }
-const signIn = async (_params, callbacks) => {
+const signIn = async (params, callbacks) => {
+    if (params?.nonce) {
+        // nonce requires a full sign-in
+        return presentSignInDialog(params, callbacks);
+    }
     await checkPrerequisites(callbacks);
     const signInResult = await GoogleSignin_1.GoogleSignin.signInSilently();
     // cannot be cancelled, because there's no user interaction
@@ -129,4 +133,5 @@ exports.GoogleOneTapSignIn = {
     enableAppCheck,
     configure,
     revokeAccess,
+    clearCachedAccessToken: GoogleSignin_1.GoogleSignin.clearCachedAccessToken,
 };

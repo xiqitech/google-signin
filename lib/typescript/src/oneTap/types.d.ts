@@ -233,6 +233,7 @@ export type OneTapSignInModule = {
     enableAppCheck: (params: EnableAppCheckParams) => Promise<null>;
     requestAuthorization: (options: RequestAuthorizationParams) => Promise<AuthorizationResponse>;
     signOut: () => Promise<null>;
+    clearCachedAccessToken(tokenString: string): Promise<null>;
     revokeAccess: (emailOrUniqueId: string) => Promise<null>;
     checkPlayServices: (showErrorResolutionDialog?: boolean) => Promise<PlayServicesInfo>;
 };

@@ -4,6 +4,7 @@ export declare const OneTapNativeModule: {
     explicitSignIn: typeof unsupported;
     signOut: typeof unsupported;
     requestAuthorization: typeof unsupported;
+    clearCachedAccessToken: typeof unsupported;
     checkPlayServices: typeof unsupported;
     revokeAccess: typeof unsupported;
 };

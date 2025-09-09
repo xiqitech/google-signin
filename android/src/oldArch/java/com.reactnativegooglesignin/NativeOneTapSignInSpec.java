@@ -61,5 +61,9 @@ public abstract class NativeOneTapSignInSpec extends ReactContextBaseJavaModule 
 
   @ReactMethod
   @DoNotStrip
+  public abstract void clearCachedAccessToken(String tokenString, Promise promise);
+
+  @ReactMethod
+  @DoNotStrip
   public abstract void requestAuthorization(ReadableMap params, Promise promise);
 }

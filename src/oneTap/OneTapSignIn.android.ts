@@ -88,6 +88,7 @@ const revokeAccess: OneTapSignInModule['revokeAccess'] = async () => {
   if (!didConfigure) {
     // this re-sets the config to the same value so it's safe
     const configurationJS = getConfigOrThrow();
+    // configuring the legacy module here!
     GoogleSignin.configure(configurationJS);
     await getOriginalConfigPromise();
   }
@@ -105,4 +106,5 @@ export const GoogleOneTapSignIn = {
   checkPlayServices,
   enableAppCheck,
   revokeAccess,
+  clearCachedAccessToken: OneTapNativeModule.clearCachedAccessToken,
 } satisfies OneTapSignInModule;
